@@ -1,6 +1,15 @@
-### React项目脚手架
+### A React Boilerplate WITH ↓
+* react-router-4
+* react-loadable
+* redux
+* redux-saga
 
-* react-router-4处理路由
-* react-loadable实现Component懒加载
-* redux管理应用数据
-* redux-saga作为异步处理方案
+
+
+#### GETTING STARTED
+
+```bash
+git clone https://github.com/Hexma/react-boilerplate.git
+
+cd react-boilerplate && yarn install && yarn start
+```
