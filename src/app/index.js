@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter, Switch, Route } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { LOCATION_CHANGE } from 'react-router-redux'
 import { connect } from 'react-redux'
 import './style.less'
 import routes from '../routes'
@@ -9,24 +10,29 @@ import Footer from '../components/footer'
 import AppWrapper from './wrapper'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
-    const { location, app } = this.props
 
+    const { location, app, history } = this.props
+    const effectName = history.action === 'PUSH' ? 'page-forward' : 'page-back'
+    
     return (
-      <TransitionGroup component="div" className="main">
+      <TransitionGroup component="div" className={effectName}>
         <CSSTransition 
           key={location.pathname} 
-          timeout={{ enter: 300000, exit: 200000 }} 
-          classNames="ex-page">
+          timeout={{ enter: 300, exit: 200 }} 
+          classNames="page-animation">
           <div className="page">
             <AppWrapper pathname={location.pathname}>
               <Header />
               <section className="section">
-                  <Switch location={location}>
-                    {routes.map(route => (
-                      <Route exact key={route.path||'notfound'} {...route}/>
-                    ))}
-                  </Switch>
+                <Switch location={location}>
+                  {routes.map(route => (
+                    <Route exact key={route.path||'notfound'} {...route}/>
+                  ))}
+                </Switch>
               </section>
               <Footer />
               {app.loading &&
@@ -40,6 +46,7 @@ class App extends React.Component {
       </TransitionGroup>
     )
   }
+
 }
 
 const mapStateToProps = state => ({ route: state.route, app: state.app })

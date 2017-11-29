@@ -1,5 +1,14 @@
 /*
 根据pathname返回分层级的样式类包裹
+eg: 
+in: 
+    /example/foo  
+out:  
+    <div className="example">
+      <div className="foo">
+        {children}
+      </div>
+    </div>
 */
 
 import React from 'react'

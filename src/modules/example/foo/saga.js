@@ -1,15 +1,14 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import axios from 'axios';
+import Fetch from '../../../utils/request'
 import { EVENTS, ACTIONS } from './';
 
 export function* handleFetch() {
   const requestURL = '/home/ajax/count';
 
   try {
+    const { data } = yield call(Fetch, requestURL)
 
-    const { data } = yield call(axios.get, requestURL)
-
-    yield put(ACTIONS['set']({ count: data.data.count }))
+    yield put(ACTIONS['set']({ count: data.count }))
 
   } catch (err) {}
 }

@@ -6,6 +6,7 @@ import injectReducer from '../../../utils/injectReducer'
 import injectSaga from '../../../utils/injectSaga'
 import { eventCreator, actionCreator } from '../../../utils/actionGenerator'
 import saga from './saga'
+import './style.less'
 
 /* Action Controller */
 

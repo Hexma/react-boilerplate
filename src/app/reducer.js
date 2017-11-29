@@ -20,6 +20,7 @@ export function appReducer(state = { loading: false, error: false }, action) {
 }
 
 export function routeReducer(state = { location: null }, action) {
+
   switch (action.type) {
     case LOCATION_CHANGE:
       return {...state, location: action.payload };
