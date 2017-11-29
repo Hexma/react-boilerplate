@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
-import store from '../store'
+import { dispatch } from '../store'
+import { loading, load_success, load_error } from '../app/actions'
 /**
  * Parses the JSON returned by a network request
  *
@@ -42,8 +43,14 @@ function checkStatus(response) {
  */
 export default function request(url, options) {
 
+  dispatch(loading())
   return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON)
-    .then(res => (res));
+    .then(res => {
+      dispatch(load_success(null))
+      return res
+    }, err => {
+      return dispatch(load_error(err))
+    });
 }

@@ -17,7 +17,7 @@ class App extends React.Component {
 
     const { location, app, history } = this.props
     const effectName = history.action === 'PUSH' ? 'page-forward' : 'page-back'
-    
+
     return (
       <TransitionGroup component="div" className={effectName}>
         <CSSTransition 
@@ -39,6 +39,9 @@ class App extends React.Component {
               <div className="mask">
                 <img src="http://jxnblk.com/loading/loading-bars.svg"/>
               </div>
+              }
+              {app.error &&
+                <div className="error">request error</div>
               }
             </AppWrapper>
           </div>

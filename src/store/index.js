@@ -45,4 +45,6 @@ function configureStore(initialState = {}, history) {
   return store;
 }
 
-export default configureStore({}, history);
+const Store = configureStore({}, history);
+export const dispatch = Store.dispatch
+export default Store;

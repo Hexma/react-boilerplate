@@ -1,12 +1,12 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import Fetch from '../../../utils/request'
+import Request from '../../../utils/request'
 import { EVENTS, ACTIONS } from './';
 
 export function* handleFetch() {
   const requestURL = '/home/ajax/count';
 
   try {
-    const { data } = yield call(Fetch, requestURL)
+    const { data } = yield call(Request, requestURL)
 
     yield put(ACTIONS['set']({ count: data.count }))
 

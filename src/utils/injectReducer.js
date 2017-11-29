@@ -26,9 +26,11 @@ export default ({ key, reducer }) => (WrappedComponent) => {
     }
 
     injectors = getInjectors(this.context.store);
+
     render() {
       return <WrappedComponent {...this.props} />;
     }
   }
+
   return hoistNonReactStatics(ReducerInjector, WrappedComponent);
 };

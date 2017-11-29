@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import { appReducer, routeReducer } from '../app/reducer';
 
 export default function createReducer(injectedReducers) {
