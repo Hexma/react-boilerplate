@@ -13,6 +13,6 @@ export function* handleFetch() {
   } catch (err) {}
 }
 
-export default function* home() {
+export default function* foo() {
   yield takeLatest(EVENTS['fetch'], handleFetch);
 }
