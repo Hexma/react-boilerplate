@@ -1,4 +1,4 @@
-### A React Boilerplate WITH ↓
+### A React Boilerplate consist of ↓
 * react-router-4
 * react-loadable
 * redux
