@@ -4,7 +4,6 @@ import { EVENTS, ACTIONS } from './';
 
 export function* handleFetch() {
   const requestURL = '/home/ajax/count';
-
   try {
     const { data } = yield call(Request, requestURL)
 

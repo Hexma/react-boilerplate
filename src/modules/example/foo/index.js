@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import injectReducer from '../../../utils/injectReducer'
 import injectSaga from '../../../utils/injectSaga'
-import { eventCreator, actionCreator } from '../../../utils/actionGenerator'
+import actionGenerator, { actionCreator } from '../../../utils/actionGenerator'
 import saga from './saga'
 import './style.less'
 
@@ -15,10 +15,8 @@ const actionsConfig = {
   actions: ['plus', 'reduce', 'fetch', 'set']
 }
 
-export const EVENTS = eventCreator(actionsConfig);
-export const ACTIONS = actionCreator(actionsConfig);
-
-/* Reducer */
+export const { EVENTS, ACTIONS } = actionGenerator(actionsConfig)
+  /* Reducer */
 export const reducer = (state = { count: 0 }, action) => {
 
   const { type, payload } = action
