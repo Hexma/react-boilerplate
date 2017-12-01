@@ -4,7 +4,11 @@
 * redux
 * redux-saga
 
-
+### Features
+* Lazy load Component by Route
+* Dynamic inject Reducer && Saga
+* Simplified Action Generation and usage
+* Classnamed Wrapper from pathname
 
 #### GETTING STARTED
 
